@@ -32,3 +32,9 @@ void backward()
    motor[motorB] = -100;    // Motor B is run at a -100 power level.
    wait1Msec(4000);         // The program waits 4000 milliseconds before running further code.
 }
+
+void tankdrive (short leftStick, short rightStick)
+{
+	motor[motorC] = leftStick;
+  motor[motorB] = rightStick;
+}
