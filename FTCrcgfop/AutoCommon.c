@@ -1,3 +1,9 @@
+#pragma config(Hubs,  S1, HTMotor,  none,     none,     none)
+#pragma config(Sensor, S1,     ,               sensorI2CMuxController)
+#pragma config(Motor,  motorA,          arm,           tmotorNormal, PIDControl, encoder)
+#pragma config(Motor,  mtr_S1_C1_1,     mLeft,         tmotorNormal, openLoop, encoder)
+#pragma config(Motor,  mtr_S1_C1_2,     mRight,        tmotorNormal, openLoop, reversed, encoder)
+
 bool isOnBlueSide;  // Which side are we running from?
 int startDelay; // How many seconds to wait before starting
 
