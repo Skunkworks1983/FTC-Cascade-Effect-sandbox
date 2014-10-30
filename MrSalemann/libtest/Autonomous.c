@@ -3,4 +3,6 @@
 task main()
 {
 	forward();
+	forward();
+	backward();
 }

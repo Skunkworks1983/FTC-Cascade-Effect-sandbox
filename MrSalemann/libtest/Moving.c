@@ -1,5 +1,3 @@
-
-
 /*--------------------------------------------------------------------------------------------------------*\
 |*                                                                                                        *|
 |*                                   - Moving Forward then Backward-                                      *|
@@ -27,7 +25,7 @@ void forward()
    wait1Msec(4000);         // The program waits 4000 milliseconds before running further code.
 }
 
-void backward ()
+void backward()
 {
    motor[motorC] = -100;    // Motor C is run at a -100 power level.
    motor[motorB] = -100;    // Motor B is run at a -100 power level.
