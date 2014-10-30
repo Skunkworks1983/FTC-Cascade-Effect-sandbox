@@ -1,6 +1,7 @@
 bool isOnBlueSide;  // Which side are we running from?
 int startDelay; // How many seconds to wait before starting
 
+
 // Get a clean button press
 int getButton() {
   while (nNxtButtonPressed != -1) {} // Wait until nothing is pressed
@@ -14,9 +15,9 @@ int getButton() {
 // Ask which side we're running from
 void promptSide() {
   eraseDisplay(); // Clear the screen
-  nxtDisplayString(0, "Which side?"); // Prompt the user
-  nxtDisplayString(1, "Left = blue");
-  nxtDisplayString(2, "Right = red");
+  displayTextLine(0, "Which side?"); // Prompt the user
+  displayTextLine(1, "Left = blue");
+  displayTextLine(2, "Right = red");
 
   bool done = false;
   while (!done) { // Repeat until they press a valid button (left or right)
@@ -40,7 +41,7 @@ void promptDelay() {
   bool done = false;
   while (!done) { // Repeat until they have chosen a number
     eraseDisplay(); // Clear the screen
-    nxtDisplayString(0, "%d", startDelay);  // Display the current number
+    displayTextLine(0, "%d", startDelay);  // Display the current number
 
     switch (getButton()) {  // Get a button
       case 1: // Right arrow button
