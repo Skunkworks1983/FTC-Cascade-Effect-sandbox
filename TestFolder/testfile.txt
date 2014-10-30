@@ -1,1 +1,5 @@
 Change a file, try to check it in with Altasian
+
+One more change over here.
+1) edit the file
+2) commit, and pick the auto-push checkbox.
