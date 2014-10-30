@@ -11,5 +11,5 @@
 
 // Here's the robot specific code for controlling the arm
 void robotSpecial() {
-  motor[arm] = joy2y1();
+  motor[arm] = joy1y2();
 }
