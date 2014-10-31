@@ -17,22 +17,10 @@ task main()
 		if (joy1Btn(2) == 0)
 		{
 			tankdrive (joystick.joy1_y1 / 5, joystick.joy1_y2 / 5);
-			/*
-			motor [motorA] = (joystick.joy1_y2 / 10); //for basic tank drive of right side
-			motor [motorC] = (joystick.joy1_y2 / 10); //""
-			motor [motorB] = (joystick.joy1_y1 / 10);//for basic tank drive of left side
-			motor [motorD] = (joystick.joy1_y1 / 10);//""
-			*/
 		}
 		if (joy1Btn(2) == 1)
 		{
 			translatedrive (joystick.joy1_x1 / 5);
-
-			/*		motor[motorA] = joystick.joy1_x1 /10; //if the A button is on, the x1 will move it side to side
-			motor[motorB] = joystick.joy1_x1 /10;
-			motor[motorC] = -joystick.joy1_x1 /10;
-			motor[motorD] = -joystick.joy1_x1 /10;
-			*/
 		}
 	}
 
