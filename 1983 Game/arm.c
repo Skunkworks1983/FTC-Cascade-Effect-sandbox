@@ -31,3 +31,21 @@ void arm_lower()
 
 	}
 }
+void arm_raise()
+{
+	if (SensorValue(touch) == 0)
+	{
+		motor [motorA] = -100;
+		motor [motorB] = -100;
+	}
+	else if (SensorValue(touch) == 1)
+	{
+		motor [motorA] = 0;
+		motor [motorB] = 0;
+	}
+}
+void arm_stop()
+{
+	motor [motorA] = 0;
+	motor [motorB] = 0;
+}
