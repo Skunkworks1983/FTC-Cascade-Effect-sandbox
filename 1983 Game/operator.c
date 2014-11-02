@@ -34,7 +34,6 @@ task main()
 			{
 				motor [motorA] = 0;
 				motor [motorB] = 0;
-				b
 			}
 		}
 		else if (joy1Btn (4) == 1) //for moving arm up

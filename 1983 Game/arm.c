@@ -19,6 +19,10 @@
 /*
 * arm.c controls the robot's arm.  It is THE ONLY file that knows about the arms motors, sensors
 * and other sub-cmpontets. arm.c provides functions such as raise, lower, and stop.
+*
+* TO-DOs
+*   o When you accomplish a task below, change the first character from 'o' to 'x'
+*   o Try reducing the nuber of pragmas above to only those required by the arm motors & sensors.
 */
 
 void arm_lower()
