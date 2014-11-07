@@ -18,7 +18,7 @@ bool OI_is_in_tank_drive (TJoystick &joystick)
 {
 	return (joy1Btn(2) == 0);
 }
-bool translate_drive (TJoystick &joystick)
+bool OI_is_in_translate_drive (TJoystick &joystick)
 {
 	return (joy1Btn(2) == 1);
 }
