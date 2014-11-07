@@ -42,11 +42,11 @@ task main()
 
 		if (OI_is_in_tank_drive(joystick))
 		{
-			tankdrive (joystick.joy1_y1 / 5, joystick.joy1_y2 / 5);
+			tankdrive (OI_get_left_throttle(joystick) / 5,(OI_get_right_throttle(joystick)  / 5);
 		}
 		if (OI_is_in_translate_drive(joystick))
 		{
-			translatedrive (joystick.joy1_x1 / 5);
+			translatedrive (OI_get_sideways_throttle(joystick) / 5);
 		}
 
 	}

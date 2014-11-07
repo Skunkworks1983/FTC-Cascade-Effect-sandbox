@@ -22,3 +22,20 @@ bool OI_is_in_translate_drive (TJoystick &joystick)
 {
 	return (joy1Btn(2) == 1);
 }
+
+short OI_get_left_throttle(TJoystick &joystick)
+{
+	return joystick.joy1_y1;
+}
+
+short OI_get_right_throttle(TJoystick &joystick)
+
+{
+	return joystick.joy1_y2;
+}
+
+short OI_get_sideways_throttle (TJoystick &joystick)
+
+{
+	return joystick.joy1_x1;
+}
