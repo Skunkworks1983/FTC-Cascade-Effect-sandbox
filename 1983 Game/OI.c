@@ -1,5 +1,5 @@
 /*
-OI (Operator Interface) is the only file that should be aware of joystick buttons and axes. 
+OI (Operator Interface) is the only file that should be aware of joystick buttons and axes.
 OI.c contains a collecton of "intuitive" functions like raiseArm(), lowerArm() so other developers
 don't have to worry about how the joystics are matched.  See test_arm.c for an example
 */
@@ -8,9 +8,17 @@ don't have to worry about how the joystics are matched.  See test_arm.c for an e
 #include "JoystickDriver.c"
 bool lowerArm (TJoystick &joystick)
 {
-	return (joy1Btn(2) == 1);
+	return (joy2Btn(2) == 1);
 }
 bool raiseArm (TJoystick &joystick)
 {
-	return (joy1Btn(4) == 1);
+	return (joy2Btn(4) == 1);
+}
+bool tank_drive (TJoystick &joystick)
+{
+	return (joy1Btn(2) == 0);
+}
+bool translate_drive (TJoystick &joystick)
+{
+	return (joy1Btn(2) == 1);
 }
