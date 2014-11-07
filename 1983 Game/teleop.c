@@ -40,11 +40,11 @@ task main()
 	{
 		getJoystickSettings(joystick);
 
-		if (tank_drive(joystick))
+		if (OI_is_in_tank_drive(joystick))
 		{
 			tankdrive (joystick.joy1_y1 / 5, joystick.joy1_y2 / 5);
 		}
-		if (translate_drive(joystick))
+		if (OI_is_in_translate_drive(joystick))
 		{
 			translatedrive (joystick.joy1_x1 / 5);
 		}

@@ -32,11 +32,11 @@ task main()
 	while (true)
 	{
 		getJoystickSettings(joystick);
-		if (lowerArm(joystick)) //for moving arm down
+		if (OI_should_lowerArm(joystick)) //for moving arm down
 		{
 			arm_lower();
 		}
-		else if (raiseArm(joystick)) //for moving arm up
+		else if (OI_should_raiseArm(joystick)) //for moving arm up
 		{
 			arm_raise();
 		}
