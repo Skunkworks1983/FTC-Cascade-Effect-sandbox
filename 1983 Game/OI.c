@@ -14,7 +14,7 @@ bool OI_should_raiseArm (TJoystick &joystick)
 {
 	return (joy2Btn(4) == 1);
 }
-bool tank_drive (TJoystick &joystick)
+bool OI_is_in_tank_drive (TJoystick &joystick)
 {
 	return (joy1Btn(2) == 0);
 }
