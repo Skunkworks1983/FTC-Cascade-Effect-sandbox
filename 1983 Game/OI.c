@@ -6,11 +6,11 @@ don't have to worry about how the joystics are matched.  See test_arm.c for an e
 
 
 #include "JoystickDriver.c"
-bool lowerArm (TJoystick &joystick)
+bool OI_should_lowerArm (TJoystick &joystick)
 {
 	return (joy2Btn(2) == 1);
 }
-bool raiseArm (TJoystick &joystick)
+bool OI_should_raiseArm (TJoystick &joystick)
 {
 	return (joy2Btn(4) == 1);
 }
