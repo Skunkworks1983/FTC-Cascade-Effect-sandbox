@@ -26,7 +26,7 @@ task main()
 
 		if (OI_is_in_tank_drive(joystick)) //driving
 		{
-			tankdrive (joystick.joy1_y1, joystick.joy1_y2); //this should be OI_get_right_throttle and the likes, but whe I do that, it throws errors
+			tankdrive (joystick.joy1_y1, joystick.joy1_y2); //this should be OI_get_right_throttle and the likes, but when I do that, it throws errors
 		}
 		if (OI_is_in_translate_drive(joystick))
 		{
