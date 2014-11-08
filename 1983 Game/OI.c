@@ -55,19 +55,19 @@ bool OI_should_close_latch2 (TJoystick &joystick)
 {
 	return (joy2Btn(3) == 1); //latch commands end
 }
+/*
 short OI_get_left_throttle(TJoystick &joystick) //looks for joystick inputs
 {
-	return joy1_y1;
+	return joystick.joy1_y1;
 }
 
 short OI_get_right_throttle(TJoystick &joystick) 
 
 {
-	return joy1_y2; //was joystick.joy1_y2 etc but in the TJoystick file (joystickdriver), it shows that it has been shortened to joy1_y2 etc
+	return joystick.joy1_y2; //was joystick.joy1_y2 etc but in the TJoystick file (joystickdriver), it shows that it has been shortened to joy1_y2 etc
 }
 
 short OI_get_sideways_throttle (TJoystick &joystick)
-
 {
-	return joy1_x1; //looks for joystick inputs end
-}
+	return joystick.joy1_x1; //looks for joystick inputs end
+}*/ // the code doesn't work 
