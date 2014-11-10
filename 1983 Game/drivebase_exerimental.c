@@ -43,6 +43,20 @@ void drive_distance(float distance_in_meters)
 	* drop the whole wait1Msec thing and count enoder ticks instead
 	* The cool thing is, the innputs to drive_distance() won't have to change!
 	*/
+
+	/*
+	* Look at the code in
+	*  C:\Program Files\Robomatter Inc\
+	*        ROBOTC Development Environment 4.X\
+	*          Sample Programs\NXT\NXT Advanced Motor Commands\
+	*             NXT nMotorTargetEncoders Example.c
+	*
+	* The guts of its task_main() could be put in here.  There's a
+	* nMotorEncoder[] you use to clear/zero-out the encoder,
+	* then you use nMotorEncoderTarget to say how many degrees(I think)
+	* to rotate.  So to drive the robot a meter, or rotate it 90 degrees,
+	* that's going to be a lot of motor rotations!
+	*/
 }
 
 
