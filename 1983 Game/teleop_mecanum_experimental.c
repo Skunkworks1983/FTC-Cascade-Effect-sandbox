@@ -88,7 +88,7 @@ task main()
 
 		/*
 		motor[motorD] = joystick.joy1_y1 - joystick.joy1_x2 - joystick.joy1_x1;
-		motor[motorG] = joystick.joy1_y1 - joystick.joy1_x2 + joystick.joy1_x1;
+		motor[motorB] = joystick.joy1_y1 - joystick.joy1_x2 + joystick.joy1_x1;
 		motor[motorC] = joystick.joy1_y1 + joystick.joy1_x2 + joystick.joy1_x1;
 		motor[motorA] = joystick.joy1_y1 + joystick.joy1_x2 - joystick.joy1_x1;
 		*/
