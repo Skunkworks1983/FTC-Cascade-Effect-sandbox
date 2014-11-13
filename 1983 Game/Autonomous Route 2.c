@@ -2,12 +2,12 @@
 task main()
 {
 	tankdrive (100,100);
-	wait1Msec (4000);
+	wait_seconds (4);
 	tankdrive (100, 25);
-	wait1Msec (3000);
+	wait_seconds (3);
 	tankdrive (80,80);
-	wait1Msec (3000);
+	wait_seconds (3);
 	tankdrive (50, 100);
-	wait1Msec (8000);
+	wait_seconds (8);
 
 }
