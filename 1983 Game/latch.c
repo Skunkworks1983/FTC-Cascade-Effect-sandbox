@@ -25,15 +25,3 @@ void latch1_close() //latch 1 closes
 	servo [servo1] = -50;
 	wait_seconds (1);
 }
-
-void latch2_open() //latch 2 opens
-{
-	servo [servo2] = 50;
-	wait_seconds (1);
-}
-
-void latch2_close() //latch 2 closes
-{
-	servo [servo2] = -50;
-	wait_seconds (1);
-}
