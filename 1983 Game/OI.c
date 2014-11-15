@@ -21,15 +21,14 @@ don't have to worry about how the joystics are matched.  See test_arm.c for an e
 *   o Add shortmecanumLeftRightSpeed(TJoystick &joystick)
 *     function should return short, Positive for leftward motion, negative for right.
 */
+// arm - slow up and down in left bumpers and triggers. Fast up and down in right bumpers and triggers.
+//belt - left side. stick or d pad. Bumpers for toggle slow or fast? bumpers
+// no buttons? joysticks have scaling
 
 #include "JoystickDriver.c"
-bool OI_should_lowerArm (TJoystick &joystick) //arm commands
+bool OI_should_moveArm (TJoystick &joystick) //arm commands
 {
-	return (joy2Btn(2) == 1);
-}
-bool OI_should_raiseArm (TJoystick &joystick)
-{
-	return (joy2Btn(4) == 1); //arm commands end
+	return joystick.joy2_y2;
 }
 bool OI_is_in_tank_drive (TJoystick &joystick) //drivebase commands
 {
@@ -39,13 +38,17 @@ bool OI_is_in_translate_drive (TJoystick &joystick)
 {
 	return (joy1Btn(2) == 1); //drivebase commands end
 }
-bool OI_should_open_latch1 (TJoystick &joystick) //latch commands
+bool OI_should_open_latch (TJoystick &joystick) //latch commands
 {
 	return (joy2Btn(1) == 1);
 }
-bool OI_should_close_latch1 (TJoystick &joystick)
+bool OI_should_close_latch (TJoystick &joystick)
 {
 	return (joy2Btn(3) == 1);
+}
+bool OI_should_move_belt (TJoystick &joystick)
+{
+	return joystick.joy2_y1;
 }
 
 /*
