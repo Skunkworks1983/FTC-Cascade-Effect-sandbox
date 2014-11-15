@@ -22,6 +22,13 @@
 
 void drive_distance(float distance_in_meters)
 {
+	
+	/* TO-DO ... ADD SOME CODE 
+	need a varialble called speed in stead of number 25.
+	if distance_in_meters is negative, then speed needs to be negative too.
+	*/
+	
+	
 	/*
 	* Currently, this is just your basic tankdrive() call follwed by a call to wait1Msec()
 	* The thing is, we really want to think about driving a specific distance, not for a specific time.
