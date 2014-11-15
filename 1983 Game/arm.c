@@ -26,27 +26,14 @@
 *   o Try reducing the nuber of pragmas above to only those required by the arm motors & sensors.
 */
 
-void arm_lower()
+void arm_move()
 {
 	if (SensorValue(touch) == 0)
 	{
-		motor [motorA] = 100;
-		motor [motorB] = 100;
+		motor [motorA] = joystick.joy2_y2;
+		motor [motorB] = joystick.joy2_y2;
 	}
-	 else if (SensorValue(touch) == 1)
-	{
-		motor [motorA] = 0;
-		motor [motorB] = 0;
 
-	}
-}
-void arm_raise()
-{
-	if (SensorValue(touch) == 0)
-	{
-		motor [motorA] = -100;
-		motor [motorB] = -100;
-	}
 	else if (SensorValue(touch) == 1)
 	{
 		motor [motorA] = 0;
