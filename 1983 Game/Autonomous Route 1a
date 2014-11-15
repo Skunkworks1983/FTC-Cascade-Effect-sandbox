@@ -1,0 +1,10 @@
+/* this sample route would make a 0.25 meter square */
+
+drive_distance(0.25);
+turn_degree(90.0);
+drive_distance(0.25);
+turn_degree(90.0);
+drive_distance(0.25);
+turn_degree(90.0);
+drive_distance(0.25);
+turn_degree(90.0);
