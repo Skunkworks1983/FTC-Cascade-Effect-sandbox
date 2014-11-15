@@ -36,6 +36,7 @@
 #include "drivebase.c"
 #include "OI.c"
 #include "latch.c"
+#include "belt.c"
 
 task main()
 {
@@ -52,13 +53,21 @@ task main()
 			translatedrive (joystick.joy1_x1); //end driving
 		}
 
-		if (OI_should_open_latch1(joystick)) //latch control
+	if (OI_should_open_latch(joystick)) //latch control
 		{
-			latch1_open();
+			latch_open();
 		}
-		else if (OI_should_close_latch1(joystick))
+		else if (OI_should_close_latch(joystick))
 		{
-			latch1_close();
+			latch_close();
+		}
+		if (OI_should_move_belt(joystick))
+		{
+			belt_move();
+		}
+		if (OI_should_move_arm(joystick))
+		{
+			arm_move();
 		}
 
 	}
