@@ -56,7 +56,7 @@ Motor Port 5        backLeft            VEX Motor             Back Left motor
 task main()
 {
 	//Create "deadzone" variables. Adjust threshold value to increase/decrease deadzone
-	int X2 = 0, Y1 = 0, X1 = 0, threshold = 15;
+	int X2 = 0, Y1 = 0, X1 = 0, threshold = 2u;
 
 	//Loop Forever
 	while(1 == 1)
@@ -100,18 +100,18 @@ task main()
 		*/
 
 		//Create "deadzone" for Y1/Ch3
-		if(abs(joystick.joy1_y1) > threshold)
-			Y1 = joystick.joy1_y1;
+		if(abs(joystick.joy1_y2) > threshold)
+			Y1 = joystick.joy1_y2;
 		else
 			Y1 = 0;
 		//Create "deadzone" for X1/Ch4
-		if(abs(joystick.joy1_x1) > threshold)
-			X1 = joystick.joy1_x1;
+		if(abs(joystick.joy1_x2) > threshold)
+			X1 = joystick.joy1_x2;
 		else
 			X1 = 0;
 		//Create "deadzone" for X2/Ch1
-		if(abs(joystick.joy1_x2) > threshold)
-			X2 = joystick.joy1_x2;
+		if(abs(joystick.joy1_x1) > threshold)
+			X2 = joystick.joy1_x1;
 		else
 			X2 = 0;
 
