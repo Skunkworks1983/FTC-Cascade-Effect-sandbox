@@ -28,12 +28,13 @@ void drive_distance(float distance_in_meters)
 	*
 	* Without encodrs, you need to time how long it takes for the robot to travel one meter
 	* this becomes your seconds_per_meter scale factor.
-	* if we donít have encoders to measure actual distance traveled by the motors, we can
-	* just use distance_in_meters * scale_factor as a ìwait timeî
+	* if we don‚Äôt have encoders to measure actual distance traveled by the motors, we can
+	* just use distance_in_meters * scale_factor as a ‚Äúwait time‚Äù
 	*/
 	float seconds_per_meter = 0.3; // total wild guess, need to fix this number
 
-	tankdrive(25, 25); // slow throttle settings are more acccurate
+	// tankdrive(25, 25); // slow throttle settings are more acccurate
+	mecanum_drive(0, 25, 0)
 
 	// convert meters to seconds, then multiple by 1,000 for miliseconds.
 	wait1Msec((distance_in_meters * seconds_per_meter) * 1000);
@@ -74,6 +75,7 @@ void turn_degree (float degrees_to_turn)
 	* degrees_to_turn is postive or negatie, then figure out whether left side or right side
 	* of tankdrive throttle needs to be positive.
 	*/
+	/*
 	if (degrees_to_turn < 0.0)
 	{
 		tankdrive (throttle_setting, -throttle_setting); // low throttle settings are more accurate.
@@ -82,6 +84,17 @@ void turn_degree (float degrees_to_turn)
 	{
 		tankdrive (-throttle_setting, throttle_setting);
 	}
+       */
+
+	if (degrees_to_turn < 0.0)
+	{
+		mecanum_drive (0, 0, throttle_setting); // low throttle settings are more accurate.
+	}
+	else
+	{
+		mecanum_drive (0, 0, -throttle_setting); // low throttle settings are more accurate.
+	}
+
 
 	/*
 	* convert degrees_to_turn into seconds, by multipling by second_for_90_degrees,
