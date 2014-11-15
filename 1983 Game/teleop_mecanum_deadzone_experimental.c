@@ -1,22 +1,22 @@
-#pragma config(Hubs,  S1, HTMotor,  HTMotor,  HTMotor,  HTMotor)
-#pragma config(Hubs,  S2, HTServo,  none,     none,     none)
-#pragma config(Sensor, S3,     touch1,         sensorTouch)
-#pragma config(Sensor, S4,     touch2,         sensorTouch)
-#pragma config(Motor,  mtr_S1_C1_1,     motorA,        tmotorTetrix, openLoop)
-#pragma config(Motor,  mtr_S1_C1_2,     motorB,        tmotorTetrix, openLoop, reversed)
-#pragma config(Motor,  mtr_S1_C2_1,     motorC,        tmotorTetrix, openLoop)
-#pragma config(Motor,  mtr_S1_C2_2,     motorD,        tmotorTetrix, openLoop, reversed)
-#pragma config(Motor,  mtr_S1_C3_1,     armA,          tmotorTetrix, openLoop)
-#pragma config(Motor,  mtr_S1_C3_2,     armB,          tmotorTetrix, openLoop)
-#pragma config(Motor,  mtr_S1_C4_1,     collector,     tmotorTetrix, openLoop)
-#pragma config(Motor,  mtr_S1_C4_2,     motorK,        tmotorTetrix, openLoop)
-#pragma config(Servo,  srvo_S2_C1_1,    servo1,               tServoStandard)
-#pragma config(Servo,  srvo_S2_C1_2,    servo2,               tServoStandard)
-#pragma config(Servo,  srvo_S2_C1_3,    servo3,               tServoNone)
-#pragma config(Servo,  srvo_S2_C1_4,    servo4,               tServoNone)
-#pragma config(Servo,  srvo_S2_C1_5,    servo5,               tServoNone)
-#pragma config(Servo,  srvo_S2_C1_6,    servo6,               tServoNone)
-
+#pragma config(Hubs,  S1, HTServo,  HTMotor,  HTMotor,  none)
+#pragma config(Hubs,  S2, HTMotor,  HTMotor,  none,     none)
+#pragma config(Sensor, S1,     ,               sensorI2CMuxController)
+#pragma config(Sensor, S2,     ,               sensorI2CMuxController)
+#pragma config(Sensor, S3,     touchsensor,    sensorTouch)
+#pragma config(Motor,  mtr_S1_C2_1,     belt,          tmotorTetrix, openLoop)
+#pragma config(Motor,  mtr_S1_C2_2,     motorE,        tmotorTetrix, openLoop)
+#pragma config(Motor,  mtr_S1_C3_1,     leftFront,     tmotorTetrix, openLoop)
+#pragma config(Motor,  mtr_S1_C3_2,     leftBack,      tmotorTetrix, openLoop)
+#pragma config(Motor,  mtr_S2_C1_1,     arm1,          tmotorTetrix, openLoop)
+#pragma config(Motor,  mtr_S2_C1_2,     arm2,          tmotorTetrix, openLoop)
+#pragma config(Motor,  mtr_S2_C2_1,     rightFront,    tmotorTetrix, openLoop, reversed)
+#pragma config(Motor,  mtr_S2_C2_2,     rightBack,     tmotorTetrix, openLoop, reversed)
+#pragma config(Servo,  srvo_S1_C1_1,    servo1,               tServoNone)
+#pragma config(Servo,  srvo_S1_C1_2,    servo2,               tServoNone)
+#pragma config(Servo,  srvo_S1_C1_3,    servo3,               tServoNone)
+#pragma config(Servo,  srvo_S1_C1_4,    servo4,               tServoNone)
+#pragma config(Servo,  srvo_S1_C1_5,    servo5,               tServoNone)
+#pragma config(Servo,  srvo_S1_C1_6,    servo6,               tServoNone)
 /* Original Vex Pragmas
 #pragma config(Motor,  port2,           frontRight,    tmotorNormal, openLoop)
 #pragma config(Motor,  port3,           backRight,     tmotorNormal, openLoop)
@@ -50,6 +50,7 @@ Motor Port 4        frontLeft           VEX Motor             Front Left motor
 Motor Port 5        backLeft            VEX Motor             Back Left motor
 ----------------------------------------------------------------------------------------------------*/
 
+#include "pragma_game_robot.c"
 #include "JoystickDriver.c"
 
 task main()
@@ -116,19 +117,26 @@ task main()
 
 		// Modified code, for FTC
 		// Not sure if the front motors are A and B, or C and D.
-		motor[motorB] = Y1 - X2 - X1;
-		motor[motorD] = Y1 - X2 + X1;
-		motor[motorA] = Y1 + X2 + X1;
-		motor[motorC] = Y1 + X2 - X1;
+		/*
+		motor[leftBack] = Y1 - X2 - X1;
+		motor[rightBack] = Y1 - X2 + X1;
+		motor[leftFront] = Y1 + X2 + X1;
+		motor[rightFront] = Y1 + X2 - X1;
+		*/
+		
+		motor[leftBack] = Y1 + X2 - X1;
+		motor[rightBack] = Y1 - X2 + X1;
+		motor[leftFront] = Y1 + X2 + X1;
+		motor[rightFront] = Y1 - X2 - X1;
 
 		// if the code above makes the robot go backwards, comment it out, and
 		// uncomment the code belo by deleting the /* and the */
 
 		/*
-		motor[motorB] = Y1 - X2 - X1;
-		motor[motorD] = Y1 - X2 + X1;
-		motor[motorC] = Y1 + X2 + X1;
-		motor[motorA] = Y1 + X2 - X1;
+		motor[leftBack] = Y1 - X2 - X1;
+		motor[rightBack] = Y1 - X2 + X1;
+		motor[rightFront] = Y1 + X2 + X1;
+		motor[leftFront] = Y1 + X2 - X1;
 
 		*/
 
