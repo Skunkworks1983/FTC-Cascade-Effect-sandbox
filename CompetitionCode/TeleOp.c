@@ -30,6 +30,8 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "JoystickDriver.c"  //Include file to "handle" the Bluetooth messages.
+// add more include lines from 1983Game\telop.c *ONLY WHEN YOU NEED THEM*
+// to start with, you should only need to add #include drivebase.c
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -45,10 +47,10 @@
 
 void initializeRobot()
 {
-  // Place code here to sinitialize servos to starting positions.
-  // Sensors are automatically configured and setup by ROBOTC. They may need a brief time to stabilize.
+	// Place code here to sinitialize servos to starting positions.
+	// Sensors are automatically configured and setup by ROBOTC. They may need a brief time to stabilize.
 
-  return;
+	return;
 }
 
 
@@ -81,24 +83,27 @@ void initializeRobot()
 
 task main()
 {
-  initializeRobot();
+	initializeRobot();
 
-  waitForStart();   // wait for start of tele-op phase
+	waitForStart();   // wait for start of tele-op phase
 
-  while (true)
-  {
-	  ///////////////////////////////////////////////////////////
-	  ///////////////////////////////////////////////////////////
-	  ////                                                   ////
-	  ////      Add your robot specific tele-op code here.   ////
-	  ////                                                   ////
-	  ///////////////////////////////////////////////////////////
-	  ///////////////////////////////////////////////////////////
+	while (true)
+	{
+		///////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////
+		////                                                   ////
+		////      Add your robot specific tele-op code here.   ////
+		////                                                   ////
+		///////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////
 
-    // Insert code to have servos and motors respond to joystick and button values.
 
-    // Look in the ROBOTC samples folder for programs that may be similar to what you want to perform.
-    // You may be able to find "snippets" of code that are similar to the functions that you want to
-    // perform.
-  }
+		/*
+		* Should only need to add the contents of 1983Game\telop.c's while loop here.
+		* Near the top of this file, right after the line that says #include "JoystickDriver.c".
+		* Do *NOT* in any code from 1983Game\teleop.c that controls the arm, belt, or latch until
+		* we actually have those parts installed on the robot.
+		*/
+
+	}
 }
