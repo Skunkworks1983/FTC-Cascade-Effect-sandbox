@@ -1,0 +1,1 @@
+This folder contains *only* the code to be loaded onto the 2014 FTC Robot at compeittion time, *and nothing else*. Development should continue the 1983 Game folder.
