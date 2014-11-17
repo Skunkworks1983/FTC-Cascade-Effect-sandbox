@@ -91,6 +91,10 @@ task main()
   ///////////////////////////////////////////////////////////
   ///////////////////////////////////////////////////////////
 
+  // I believe the purose of this infinite while loop is to
+  // put the robot in an idle state until the Field Control
+  // system switches to teleop mode.  As such, this loop
+  // should stay here.
   while (true)
   {}
 }
