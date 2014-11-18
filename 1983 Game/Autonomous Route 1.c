@@ -4,6 +4,7 @@
 
 task main()
 {
+	waitForStart();
 	latch1_open (); //latch opens to "intitialize"
 	tankdrive (100, 100); //forewards
 	wait_seconds (12);
