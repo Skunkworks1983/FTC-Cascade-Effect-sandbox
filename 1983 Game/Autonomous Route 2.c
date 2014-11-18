@@ -1,6 +1,7 @@
 #include "drivebase.c"
 task main()
 {
+	waitForStart();
 	tankdrive (100,100);
 	wait_seconds (4);
 	tankdrive (100, 25);
