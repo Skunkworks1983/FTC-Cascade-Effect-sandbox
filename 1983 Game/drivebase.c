@@ -3,12 +3,12 @@
 #pragma config(Sensor, S1,     ,               sensorI2CMuxController)
 #pragma config(Sensor, S2,     ,               sensorI2CMuxController)
 #pragma config(Sensor, S3,     touchsensor,    sensorTouch)
-#pragma config(Motor,  mtr_S1_C2_1,     belt,          tmotorTetrix, openLoop)
-#pragma config(Motor,  mtr_S1_C2_2,     motorE,        tmotorTetrix, openLoop)
+#pragma config(Motor,  mtr_S1_C2_1,     arm2,          tmotorTetrix, openLoop)
+#pragma config(Motor,  mtr_S1_C2_2,     belt,          tmotorTetrix, openLoop)
 #pragma config(Motor,  mtr_S1_C3_1,     leftFront,     tmotorTetrix, openLoop)
 #pragma config(Motor,  mtr_S1_C3_2,     leftBack,      tmotorTetrix, openLoop)
 #pragma config(Motor,  mtr_S2_C1_1,     arm1,          tmotorTetrix, openLoop)
-#pragma config(Motor,  mtr_S2_C1_2,     arm2,          tmotorTetrix, openLoop)
+#pragma config(Motor,  mtr_S2_C1_2,      ,             tmotorTetrix, openLoop)
 #pragma config(Motor,  mtr_S2_C2_1,     rightFront,    tmotorTetrix, openLoop, reversed)
 #pragma config(Motor,  mtr_S2_C2_2,     rightBack,     tmotorTetrix, openLoop, reversed)
 #pragma config(Servo,  srvo_S1_C1_1,    servo1,               tServoNone)
@@ -37,7 +37,7 @@
 *   o add turnDegree(float degrees)
 *   o try removing un-needed pragmas.
 */
-/*
+
 void tankdrive (short leftThrottle, short rightThrottle)
 {
 motor [leftFront] = (leftThrottle); //for basic tank drive of right side
@@ -53,7 +53,7 @@ motor[leftBack] = direction;
 motor[rightFront] = -direction;
 motor[rightBack] = -direction;
 }
-*/
+
 
 void mecanum_drive (short leftRight, short frontBack, short pivot)
 {
