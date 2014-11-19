@@ -3,12 +3,12 @@
 #pragma config(Sensor, S1,     ,               sensorI2CMuxController)
 #pragma config(Sensor, S2,     ,               sensorI2CMuxController)
 #pragma config(Sensor, S3,     touchsensor,    sensorTouch)
-#pragma config(Motor,  mtr_S1_C2_1,     belt,          tmotorTetrix, openLoop)
-#pragma config(Motor,  mtr_S1_C2_2,     motorE,        tmotorTetrix, openLoop)
+#pragma config(Motor,  mtr_S1_C2_1,     arm2,          tmotorTetrix, openLoop)
+#pragma config(Motor,  mtr_S1_C2_2,     belt,          tmotorTetrix, openLoop)
 #pragma config(Motor,  mtr_S1_C3_1,     leftFront,     tmotorTetrix, openLoop)
 #pragma config(Motor,  mtr_S1_C3_2,     leftBack,      tmotorTetrix, openLoop)
 #pragma config(Motor,  mtr_S2_C1_1,     arm1,          tmotorTetrix, openLoop)
-#pragma config(Motor,  mtr_S2_C1_2,     arm2,          tmotorTetrix, openLoop)
+#pragma config(Motor,  mtr_S2_C1_2,      ,             tmotorTetrix, openLoop)
 #pragma config(Motor,  mtr_S2_C2_1,     rightFront,    tmotorTetrix, openLoop, reversed)
 #pragma config(Motor,  mtr_S2_C2_2,     rightBack,     tmotorTetrix, openLoop, reversed)
 #pragma config(Servo,  srvo_S1_C1_1,    servo1,               tServoNone)
@@ -36,6 +36,7 @@
 #include "drivebase.c"
 #include "OI.c"
 #include "latch.c"
+#include "belt.c"
 
 task main()
 {
@@ -53,9 +54,9 @@ task main()
 			translatedrive (joystick.joy1_x1); //end driving
 		}
 		*/
-		
-		mecanum_drive (joystick.joy1_x2, joystick.joy1_y2, joystick.joy1_x1) 
-		
+
+		mecanum_drive (joystick.joy1_x2, joystick.joy1_y2, joystick.joy1_x1);
+
 		if (OI_should_open_latch(joystick)) //latch control
 		{
 			latch1_open();
@@ -64,6 +65,13 @@ task main()
 		{
 			latch1_close();
 		}
-
+		if (OI_should_move_belt(joystick))
+		{
+			belt_move();
+		}
+		if (OI_should_moveArm(joystick))
+		{
+			arm_move();
+		}
 	}
 }
