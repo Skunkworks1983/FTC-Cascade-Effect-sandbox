@@ -50,6 +50,10 @@ bool OI_should_move_belt (TJoystick &joystick)
 {
 	return joystick.joy2_y1;
 }
+bool OI_should_run_half_speed (TJoystick &joystick) 
+{
+	return (joy1Btn(2) == 1);
+}
 
 /*
 short OI_get_left_throttle(TJoystick &joystick) //looks for joystick inputs
