@@ -38,6 +38,8 @@
 *   o try removing un-needed pragmas.
 */
 
+#include "OI.c"
+
 void tankdrive (short leftThrottle, short rightThrottle)
 {
 motor [leftFront] = (leftThrottle); //for basic tank drive of right side
@@ -85,12 +87,21 @@ void mecanum_drive (short leftRight, short frontBack, short pivot)
 	motor[leftFront] = Y1 + X2 + X1;
 	motor[rightFront] = Y1 + X2 - X1;
 	*/
-
-	motor[leftBack] = Y1 + X2 - X1;
-	motor[rightBack] = Y1 - X2 + X1;
-	motor[leftFront] = Y1 + X2 + X1;
-	motor[rightFront] = Y1 - X2 - X1;
-
+	if (OI_should_run_half_speed(joystick))
+	{
+		motor[leftBack] = Y1 + X2 - X1;
+		motor[rightBack] = Y1 - X2 + X1;
+		motor[leftFront] = Y1 + X2 + X1;
+		motor[rightFront] = Y1 - X2 - X1;
+	}
+	else
+	{
+		motor[leftBack] = (Y1 + X2 - X1) /2;
+		motor[rightBack] = (Y1 - X2 + X1) /2;
+		motor[leftFront] = (Y1 + X2 + X1) /2;
+		motor[rightFront] = (Y1 - X2 - X1) /2;
+	}
+		
 	// if the code above makes the robot go backwards, comment it out, and
 	// uncomment the code belo by deleting the /* and the */
 
