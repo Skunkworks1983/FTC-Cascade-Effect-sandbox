@@ -92,7 +92,6 @@ task main()
   ///////////////////////////////////////////////////////////
 int degreeRotation = 3600;
 
-wait1Msec (4000);
 
 nMotorEncoder[leftFront] = 0;//nMotorEncoder is just to let the it know we are beginniung to program with an encoder
 nMotorEncoder[leftBack] = 0;//motors are being set to 0 before the while loop just in case
