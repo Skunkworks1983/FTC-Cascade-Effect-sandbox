@@ -67,7 +67,6 @@ void arm_stop()
 
 void arm_move ()
 {
-	motor [arm1] = joystick.joy2_y2
-	motor [arm2] = joystick.joy2_y2
+	motor [arm1] = joystick.joy2_y2;
+	motor [arm2] = joystick.joy2_y2;
 }
-	
