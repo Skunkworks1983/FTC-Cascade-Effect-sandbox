@@ -8,7 +8,7 @@
 #pragma config(Motor,  mtr_S1_C3_1,     leftFront,     tmotorTetrix, openLoop)
 #pragma config(Motor,  mtr_S1_C3_2,     leftBack,      tmotorTetrix, openLoop)
 #pragma config(Motor,  mtr_S2_C1_1,     arm1,          tmotorTetrix, openLoop)
-#pragma config(Motor,  mtr_S2_C1_2,      ,             tmotorTetrix, openLoop)
+#pragma config(Motor,  mtr_S2_C1_2,     motorI,        tmotorTetrix, openLoop)
 #pragma config(Motor,  mtr_S2_C2_1,     rightFront,    tmotorTetrix, openLoop, reversed)
 #pragma config(Motor,  mtr_S2_C2_2,     rightBack,     tmotorTetrix, openLoop, reversed)
 #pragma config(Servo,  srvo_S1_C1_1,    servo1,               tServoNone)
@@ -40,6 +40,7 @@
 
 task main()
 {
+//	waitForStart();
 	while (true)
 	{
 		getJoystickSettings(joystick);
