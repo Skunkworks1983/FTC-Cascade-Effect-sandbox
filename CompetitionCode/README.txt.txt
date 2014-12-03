@@ -1,5 +1,3 @@
-Post-compoetition edit
-
 The purpose of this folder is to contain *only* the code to be loaded onto the 2014 FTC Robot at compeittion time, 
 *and nothing else*.   This way,
 
