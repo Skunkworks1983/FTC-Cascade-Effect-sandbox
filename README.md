@@ -11,3 +11,5 @@ Contributors should:
 
 3) Tell people what you contributed
 
+Test edit: Trying out CollabNet Giteye
+
