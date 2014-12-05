@@ -90,7 +90,7 @@ task main()
   ////                                                   ////
   ///////////////////////////////////////////////////////////
   ///////////////////////////////////////////////////////////
-int degreeRotation = 10000;
+int degreeRotation = 12000;
 
 
 nMotorEncoder[leftFront] = 0;//nMotorEncoder is just to let the it know we are beginniung to program with an encoder
