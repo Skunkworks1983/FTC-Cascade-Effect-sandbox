@@ -96,10 +96,10 @@ void mecanum_drive (short leftRight, short frontBack, short pivot)
 	}
 	else
 	{
-		motor[leftBack] = (Y1 + X2 - X1) /4;
-		motor[rightBack] = (Y1 - X2 + X1) /4;
-		motor[leftFront] = (Y1 + X2 + X1) /4;
-		motor[rightFront] = (Y1 - X2 - X1) /4;
+		motor[leftBack] = (Y1 + X2 - X1) /2;
+		motor[rightBack] = (Y1 - X2 + X1) /2;
+		motor[leftFront] = (Y1 + X2 + X1) /2;
+		motor[rightFront] = (Y1 - X2 - X1) /2;
 	}
 	writeDebugStream("leftBack: %d\n", motor[leftBack]);   
 
