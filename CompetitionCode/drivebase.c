@@ -8,7 +8,7 @@
 #pragma config(Motor,  mtr_S1_C3_1,     leftFront,     tmotorTetrix, openLoop)
 #pragma config(Motor,  mtr_S1_C3_2,     leftBack,      tmotorTetrix, openLoop)
 #pragma config(Motor,  mtr_S2_C1_1,     arm1,          tmotorTetrix, openLoop)
-#pragma config(Motor,  mtr_S2_C1_2,     motorI,        tmotorTetrix, openLoop)
+#pragma config(Motor,  mtr_S2_C1_2,      ,             tmotorTetrix, openLoop)
 #pragma config(Motor,  mtr_S2_C2_1,     rightFront,    tmotorTetrix, openLoop, reversed)
 #pragma config(Motor,  mtr_S2_C2_2,     rightBack,     tmotorTetrix, openLoop, reversed)
 #pragma config(Servo,  srvo_S1_C1_1,    servo1,               tServoNone)
@@ -87,21 +87,23 @@ void mecanum_drive (short leftRight, short frontBack, short pivot)
 	motor[leftFront] = Y1 + X2 + X1;
 	motor[rightFront] = Y1 + X2 - X1;
 	*/
-//	if (OI_should_run_half_speed(joystick))
+	if (!OI_should_run_half_speed(joystick))
 	{
 		motor[leftBack] = Y1 + X2 - X1;
 		motor[rightBack] = Y1 - X2 + X1;
 		motor[leftFront] = Y1 + X2 + X1;
 		motor[rightFront] = Y1 - X2 - X1;
 	}
-/*	else
+	else
 	{
-		motor[leftBack] = (Y1 + X2 - X1) /2;
-		motor[rightBack] = (Y1 - X2 + X1) /2;
-		motor[leftFront] = (Y1 + X2 + X1) /2;
-		motor[rightFront] = (Y1 - X2 - X1) /2;
+		motor[leftBack] = (Y1 + X2 - X1) /4;
+		motor[rightBack] = (Y1 - X2 + X1) /4;
+		motor[leftFront] = (Y1 + X2 + X1) /4;
+		motor[rightFront] = (Y1 - X2 - X1) /4;
 	}
-*/
+	writeDebugStream("leftBack: %d, rightBack: %d, leftFront: %d, rightFront: %d\n", motor[leftBack],
+	 motor[rightBack], motor[leftFront], motor[rightFront]);
+
 	// if the code above makes the robot go backwards, comment it out, and
 	// uncomment the code belo by deleting the /* and the */
 
