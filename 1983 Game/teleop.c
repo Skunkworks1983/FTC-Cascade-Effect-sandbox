@@ -56,6 +56,20 @@ task main()
 		}
 		*/
 
+		/*
+		take that OI_should_run_half_speed() call out of drivebase.c and put it here.  
+		Also, isntead of making motor calls, make mecanum_drive_speed calls.
+		It should look something like this:
+		if (!OI_should_run_half_speed(joystick))
+		{
+			mecanum_drive(joystick.joy1_x2, joystick.joy1_y2, joystick.joy1_x1);
+		}
+		else
+		{
+			mecanum_drive_speed (joystick.joy1_x2, joystick.joy1_y2, joystick.joy1_x1, 0.25);
+
+		}
+		*/
 		mecanum_drive (joystick.joy1_x2, joystick.joy1_y2, joystick.joy1_x1);
 
 		if (OI_should_open_latch(joystick)) //latch control
