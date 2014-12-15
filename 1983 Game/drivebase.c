@@ -56,6 +56,45 @@ motor[rightFront] = -direction;
 motor[rightBack] = -direction;
 }
 
+/*
+// MODIFIED mecanum_drive()
+// 1) Take existing mecanum drive, rename it to mecanum_drive_with_speed
+// 2) Add a new parameter - speed.  See below
+void mecanum_drive_with_speed (short leftRight, short frontBack, short pivot, float speed)
+{
+// The guts of this function will look almost the same as the current mecanum_drive()
+// The only difference is, instead of 
+	if (!OI_should_run_half_speed(joystick))
+	{
+		motor[leftBack] = Y1 + X2 - X1;
+		motor[rightBack] = Y1 - X2 + X1;
+		motor[leftFront] = Y1 + X2 + X1;
+		motor[rightFront] = Y1 - X2 - X1;
+	}
+	else
+	{
+		motor[leftBack] = (Y1 + X2 - X1) /4;
+		motor[rightBack] = (Y1 - X2 + X1) /4;
+		motor[leftFront] = (Y1 + X2 + X1) /4;
+		motor[rightFront] = (Y1 - X2 - X1) /4;
+	}
+	
+// you'll have 	
+		motor[leftBack] = (Y1 + X2 - X1) * speed;
+		motor[rightBack] = (Y1 - X2 + X1) * speed;
+		motor[leftFront] = (Y1 + X2 + X1) * speed;
+		motor[rightFront] = (Y1 - X2 - X1) * speed;
+// also see suggested mods in coments of 1983 Game/teleop.c
+}
+
+// NEW mecanum_drive() FUNCTION
+// the new mecanum_drive() shoudl just look like this:
+void mecanum_drive (short leftRight, short frontBack, short pivot)
+{
+   mecanum_drive(leftRight, frontBack, pivot, 1.0);
+}
+
+*/
 
 void mecanum_drive (short leftRight, short frontBack, short pivot)
 {
