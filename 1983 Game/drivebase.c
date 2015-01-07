@@ -39,22 +39,22 @@
 *   o try removing un-needed pragmas.
 */
 
-#include "OI.c"
+////#include "OI.c"
 
 void tankdrive (short leftThrottle, short rightThrottle)
 {
-motor [leftFront] = (leftThrottle); //for basic tank drive of right side
-motor [leftBack] = (leftThrottle); //""
-motor [rightFront] = (rightThrottle);//for basic tank drive of left side
-motor [rightBack] = (rightThrottle);//""
+	motor [leftFront] = (leftThrottle); //for basic tank drive of right side
+	motor [leftBack] = (leftThrottle); //""
+	motor [rightFront] = (rightThrottle);//for basic tank drive of left side
+	motor [rightBack] = (rightThrottle);//""
 }
 
 void translatedrive (short direction)
 {
-motor[leftFront] = direction; //if the A button is on, the x1 will move it side to side
-motor[leftBack] = direction;
-motor[rightFront] = -direction;
-motor[rightBack] = -direction;
+	motor[leftFront] = direction; //if the A button is on, the x1 will move it side to side
+	motor[leftBack] = direction;
+	motor[rightFront] = -direction;
+	motor[rightBack] = -direction;
 }
 
 void mecanum_drive (short leftRight, short frontBack, short pivot)
@@ -87,7 +87,7 @@ void mecanum_drive (short leftRight, short frontBack, short pivot)
 	motor[leftFront] = Y1 + X2 + X1;
 	motor[rightFront] = Y1 + X2 - X1;
 	*/
-	if (OI_should_run_half_speed(joystick))
+	/* if (OI_should_run_half_speed(joystick))
 	{
 		motor[leftBack] = (Y1 + X2 - X1) /2;
 		motor[rightBack] = (Y1 - X2 + X1) /2;
@@ -103,7 +103,8 @@ void mecanum_drive (short leftRight, short frontBack, short pivot)
 		motor[rightFront] = Y1 - X2 - X1;
 
 	}
-/*
+	*/
+	/*
 	// if the code above makes the robot go backwards, comment it out, and
 	// uncomment the code belo by deleting the /* and the */
 
@@ -122,7 +123,7 @@ void wait_seconds (short seconds)
 
 }
 
-void drive_inches(int inches)
+void drive_forward(int inches)
 {
 	int degrees = 133.92 * inches;// One inch = 133.92 degrees on the encoders.
 
@@ -144,4 +145,43 @@ void drive_inches(int inches)
 	motor[leftBack] = 0;
 	motor[rightFront] = 0;
 	motor[rightBack] = 0;
+}
+void drive_backwards(int inches) //For backwards drive
+{
+	int degrees = 133.92 * inches;// One inch = 133.92 degrees on the encoders.
+
+	nMotorEncoder[leftFront] = 0;//nMotorEncoder is just to let the it know we are beginning to program with an encoder
+	nMotorEncoder[leftBack] = 0;//motors are being set to 0 before the while loop just in case
+	nMotorEncoder[rightFront] = 0;
+	nMotorEncoder[rightBack] = 0;
+
+	wait1Msec (50);//after reading some blogs we thought that it was neccessary to wait betwwen functions
+
+	while((nMotorEncoder[leftFront] > degrees) && (nMotorEncoder[leftBack] > degrees) && (nMotorEncoder[rightFront] > degrees) && (nMotorEncoder[rightBack] > degrees))//this while loop only lets the following code run when motor A and B have not rotated more than
+	{
+		motor[leftFront] = -100;
+		motor[leftBack] = -100;
+		motor[rightFront] = -100;
+		motor[rightBack] = -100;
+	}
+	motor[leftFront] = 0;
+	motor[leftBack] = 0;
+	motor[rightFront] = 0;
+	motor[rightBack] = 0;
+}
+
+void drive_inches(int inches) 
+{
+	//if inches is positive it will go forward, call drive_forward
+	//if inches is negative it will go backwards, call drive_backwards
+
+	if (inches > 0 )
+	{
+		drive_forward(inches);
+	}
+
+	else
+	{
+		drive_backwards(inches);
+	}
 }
