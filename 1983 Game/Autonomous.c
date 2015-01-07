@@ -30,7 +30,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "JoystickDriver.c"  //Include file to "handle" the Bluetooth messages.
-
+#include "drivebase.c" 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -81,7 +81,7 @@ task main()
 {
   initializeRobot();
 
-	waitForStart(); // Wait for the beginning of autonomous phase.
+	//waitForStart(); // Wait for the beginning of autonomous phase.
 
   ///////////////////////////////////////////////////////////
   ///////////////////////////////////////////////////////////
@@ -90,15 +90,20 @@ task main()
   ////                                                   ////
   ///////////////////////////////////////////////////////////
   ///////////////////////////////////////////////////////////
-int degreeRotation = 12000;
 
 
+drive_inches(24);
+
+drive_inches(-24);
+
+
+/*
 nMotorEncoder[leftFront] = 0;//nMotorEncoder is just to let the it know we are beginniung to program with an encoder
 nMotorEncoder[leftBack] = 0;//motors are being set to 0 before the while loop just in case
 nMotorEncoder[rightFront] = 0;
 nMotorEncoder[rightBack] = 0;
 
-wait1Msec (50);//after reading some blogs we thought that it was neccessary to wait betwwen functions
+wait1Msec (50);//after reading some blogs we thought that it was neccessary to wait between functions
 
 while((nMotorEncoder[leftFront] < degreeRotation) && (nMotorEncoder[leftBack] < degreeRotation) && (nMotorEncoder[rightFront] < degreeRotation) && (nMotorEncoder[rightBack] < degreeRotation))//this while loop only lets the following code run when motor A and B have not rotated more than
 {
@@ -111,6 +116,7 @@ motor[leftFront] = 0;
 motor[leftBack] = 0;
 motor[rightFront] = 0;
 motor[rightBack] = 0;
+*/
 
 wait1Msec (50);
   // I believe the purose of this infinite while loop is to
@@ -119,4 +125,5 @@ wait1Msec (50);
   // should stay here.
   while (true)
   {}
+  
 }
