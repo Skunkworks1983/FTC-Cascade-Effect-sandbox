@@ -170,7 +170,7 @@ void drive_backwards(int inches) //For backwards drive
 	motor[rightBack] = 0;
 }
 
-void drive_inches(int inches) 
+void drive_inches(int inches)
 {
 	//if inches is positive it will go forward, call drive_forward
 	//if inches is negative it will go backwards, call drive_backwards
