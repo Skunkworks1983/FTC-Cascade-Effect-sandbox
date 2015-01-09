@@ -90,7 +90,7 @@ task main()
   ////                                                   ////
   ///////////////////////////////////////////////////////////
   ///////////////////////////////////////////////////////////
-drive_inches (-40);
+drive_inches (-65);
 
 wait1Msec (50);
   // I believe the purose of this infinite while loop is to
