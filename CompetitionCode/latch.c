@@ -1,4 +1,4 @@
-#pragma config(Hubs,  S1, HTServo,  HTMotor,  HTMotor,  none)
+ #pragma config(Hubs,  S1, HTServo,  HTMotor,  HTMotor,  none)
 #pragma config(Hubs,  S2, HTMotor,  HTMotor,  none,     none)
 #pragma config(Sensor, S1,     ,               sensorI2CMuxController)
 #pragma config(Sensor, S2,     ,               sensorI2CMuxController)
@@ -8,7 +8,7 @@
 #pragma config(Motor,  mtr_S1_C3_1,     leftFront,     tmotorTetrix, openLoop)
 #pragma config(Motor,  mtr_S1_C3_2,     leftBack,      tmotorTetrix, openLoop)
 #pragma config(Motor,  mtr_S2_C1_1,     arm1,          tmotorTetrix, openLoop)
-#pragma config(Motor,  mtr_S2_C1_2,     motorI,        tmotorTetrix, openLoop)
+#pragma config(Motor,  mtr_S2_C1_2,      ,             tmotorTetrix, openLoop)
 #pragma config(Motor,  mtr_S2_C2_1,     rightFront,    tmotorTetrix, openLoop, reversed)
 #pragma config(Motor,  mtr_S2_C2_2,     rightBack,     tmotorTetrix, openLoop, reversed)
 #pragma config(Servo,  srvo_S1_C1_1,    servo1,               tServoNone)
@@ -23,12 +23,10 @@
 
 void latch1_open() //latch 1 unlocks
 {
-	servo [servo1] = 50;
-	wait_seconds (1);
+	servo [servo1] = 0;
 }
 
 void latch1_close() //latch 1 closes
 {
-	servo [servo1] = -50;
-	wait_seconds (1);
+	servo [servo1] = 75;
 }
